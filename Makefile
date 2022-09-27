@@ -1,5 +1,5 @@
-IMAGE_REGISTRY?=ger-is-registry.caas.intel.com/cno/k8s-p4/
-IMAGE_VERSION?=latest
+IMAGE_REGISTRY?=ghcr.io/$(github.repository_owner)/k8s/
+IMAGE_VERSION?=main
 export INFRAAGENT_IMAGE?=$(IMAGE_REGISTRY)infraagent:$(IMAGE_VERSION)
 export INFRAMANAGER_IMAGE?=$(IMAGE_REGISTRY)inframanager:$(IMAGE_VERSION)
 
