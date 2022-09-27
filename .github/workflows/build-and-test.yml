@@ -41,6 +41,9 @@ jobs:
         
     - name: docker build
       run: make docker-build
-
+      
+    - name: docker deploy
+      run: make deploy
+      
     - name: docker push
       run: make docker-push
