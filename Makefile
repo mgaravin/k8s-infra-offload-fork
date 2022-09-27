@@ -1,4 +1,4 @@
-IMAGE_REGISTRY?=ghcr.io/$(github.repository_owner)/k8s/
+IMAGE_REGISTRY?=ghcr.io/mgaravin/k8s/
 IMAGE_VERSION?=main
 export INFRAAGENT_IMAGE?=$(IMAGE_REGISTRY)infraagent:$(IMAGE_VERSION)
 export INFRAMANAGER_IMAGE?=$(IMAGE_REGISTRY)inframanager:$(IMAGE_VERSION)
