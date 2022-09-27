@@ -2,7 +2,9 @@ name: Build and Test
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - main
+      - deploy_test
 
   pull_request:
     branches: [ main ]
@@ -29,3 +31,6 @@ jobs:
 
     - name: Test
       run: make test
+      
+    - name: deploy
+      run: make all
