@@ -40,9 +40,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Create k8s Kind Cluster
-      uses: helm/kind-action@v1.3.0
-      with:
-        node_image: kindest/node:v1.24.2
+      uses: helm/kind-action@v1.4.0
 
     - name: kustomize test
       run: |
