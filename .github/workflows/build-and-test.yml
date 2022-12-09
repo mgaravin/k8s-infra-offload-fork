@@ -31,5 +31,6 @@ jobs:
         
     - name: change persmissions
       run: |
-        sudo chmod 775 -R /var/lib/cni
+        sudo chmod 777 -R /var/lib/cni/inframanager
         ls -ltr /var/lib/cni
+        cd /var/lib/cni/inframanager && touch test.txt && ls -ltr
