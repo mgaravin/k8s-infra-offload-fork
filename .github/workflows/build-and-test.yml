@@ -2,7 +2,9 @@ name: Build and Test
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - github-permissions
 
   pull_request:
     branches: [ main ]
@@ -26,9 +28,8 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: 1.18
-
-    - name: Build
-      run: make
-
-    - name: Test
-      run: make test
+        
+    - name: change persmissions
+      run: |
+        sudo chmod 775 -R /var/lib/cni
+        ls -ltr /var/lib/cni
