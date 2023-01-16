@@ -29,4 +29,4 @@ jobs:
     - name: test all dockerfiles
       run: | 
         find . -name Dockerfile* -exec \
-        sh -c 'src=${1#./} && { set -x && docker run --rm -i ghcr.io/hadolint/hadolint < "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
+        sh -c 'src=${1#./} && { set -x && docker run --rm -i ghcr.io/hadolint/hadolint < "$1"; }' sh "{}" \;
