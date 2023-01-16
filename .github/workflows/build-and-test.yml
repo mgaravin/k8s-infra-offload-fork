@@ -19,14 +19,14 @@ jobs:
   HadolintTest:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    #ghcr.io/hadolint/hadolint:latest-debian
     
     steps:
     
     - uses: actions/checkout@v3
     
-    - uses: hadolint/hadolint-action@v2.1.0
         
     - name: test all dockerfiles
       run: | 
         find . -name Dockerfile* -exec \
-        sh -c 'src=${1#./} && { set -x && hadolint "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
+        sh -c 'src=${1#./} && { set -x && docker run --rm -i ghcr.io/hadolint/hadolint < "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
