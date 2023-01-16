@@ -19,21 +19,14 @@ jobs:
   HadolintTest:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    container:
+      image: ghcr.io/hadolint/hadolint
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
     steps:
     
     - uses: actions/checkout@v3
-
-    - uses: hadolint/hadolint-action@v2.1.0
-      with:
-        script: |
-          find . -name Dockerfile* -exec \
-          sh -c 'src=${1#./} && { set -x && hadolint "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
-        recursive: false
-        no-color: true
-        no-fail: true
-        verbose: true
-        format: tty
-        failure-threshold: info
         
     - name: test all dockerfiles
       run: | 
