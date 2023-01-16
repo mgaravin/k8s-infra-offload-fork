@@ -25,7 +25,9 @@ jobs:
 
     - uses: hadolint/hadolint-action@v2.1.0
       with:
-        dockerfile: images/Dockerfile.agent
+        script: |
+          find . -name Dockerfile* -exec \
+          sh -c 'src=${1#./} && { set -x && hadolint "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
         recursive: false
         no-color: true
         no-fail: true
