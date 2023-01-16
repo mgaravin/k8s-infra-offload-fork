@@ -32,3 +32,8 @@ jobs:
         verbose: true
         format: tty
         failure-threshold: info
+        
+    - name: test all dockerfiles
+      run: | 
+        find . -name Dockerfile* -exec \
+        sh -c 'src=${1#./} && { set -x && hadolint "$1"; } | tee -a "reports/${src%%/*}.txt"' sh "{}" \;
