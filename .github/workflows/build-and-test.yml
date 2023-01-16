@@ -19,11 +19,7 @@ jobs:
   HadolintTest:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    container:
-      image: ghcr.io/hadolint/hadolint
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.github_token }}
+    
     steps:
     
     - uses: actions/checkout@v3
