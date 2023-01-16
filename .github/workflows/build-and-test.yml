@@ -27,8 +27,7 @@ jobs:
     
     - name: install hadolint
       run: |
-        sudo apt upgrade
-        sudo apt install hadolint
+        sudo apt-get install hadolint
     
     - name: test all dockerfiles
       run: | 
